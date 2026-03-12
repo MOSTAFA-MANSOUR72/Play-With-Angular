@@ -1,3 +1,16 @@
+.product-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 0.75rem;
+  padding: 0.25em 0.5em;
+  z-index: 2;
+}
+.bg-danger {
+  background-color: #dc3545;
+  color: white;
+  border-radius: 4px;
+}
 .text-center {
   text-align: center;
   width: 100%;

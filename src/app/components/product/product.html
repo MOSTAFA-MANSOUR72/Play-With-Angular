@@ -1,83 +1,26 @@
-<div class=" my-5">
+<div class="my-5">
   <div class="text-center">
+    <h2>Our Products</h2>
+    <!-- using the array products in the product.ts and monitor in a grid-->
     <div class="row">
-      <div class="col">
-        <div class="card" style="width: 18rem">
-          <img src="image.png" class="card-img-top" alt="..." />
+      <div class="col-md-4" *ngFor="let product of products">
+        <div class="card">
+          <img [src]="product.image" [alt]="product.name" class="card-img-top" alt="{{ product.name }}" />
+          <span
+            [ngClass]="{
+              'badge bg-danger': !product.inStock,
+              'badge bg-success': product.inStock,
+              'product-badge': true,
+            }"
+          >
+            {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
+          </span>
           <div class="card-body">
-            <h5 class="card-title">nike shoes</h5>
-            <p class="card-text">Price: 1000 EGP</p>
-            <a href="#" class="btn btn-primary">Add To Card</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem">
-          <img src="image.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">nike shoes</h5>
-            <p class="card-text">Price: 1000 EGP</p>
-            <a href="#" class="btn btn-primary">Add To Card</a>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem">
-          <img src="image.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">nike shoes</h5>
-            <p class="card-text">Price: 1000 EGP</p>
-            <a href="#" class="btn btn-primary">Add To Card</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 18rem">
-          <img src="image.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">nike shoes</h5>
-            <p class="card-text">Price: 1000 EGP</p>
-            <a href="#" class="btn btn-primary">Add To Card</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem">
-          <img src="image.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">nike shoes</h5>
-            <p class="card-text">Price: 1000 EGP</p>
-            <a href="#" class="btn btn-primary">Add To Card</a>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem">
-          <img src="image.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">nike shoes</h5>
-            <p class="card-text">Price: 1000 EGP</p>
-            <a href="#" class="btn btn-primary">Add To Card</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 18rem">
-          <img src="image.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">nike shoes</h5>
-            <p class="card-text">Price: 1000 EGP</p>
-            <a href="#" class="btn btn-primary">Add To Card</a>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem">
-          <img src="image.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">nike shoes</h5>
-            <p class="card-text">Price: 1000 EGP</p>
-            <a href="#" class="btn btn-primary">Add To Card</a>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem">
-          <img src="image.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">nike shoes</h5>
-            <p class="card-text">Price: 1000 EGP</p>
-            <a href="#" class="btn btn-primary">Add To Card</a>
+            <h5 class="card-title image">{{ product.name }}</h5>
+            <p [style.color]="product.price<=100 ? 'green' : 'red'" >${{ product.price }}</p>
+            <button class="btn btn-primary" [disabled]="!product.inStock">
+              {{ product.inStock ? 'Add to Cart' : 'Out of Stock' }}
+            </button>
           </div>
         </div>
       </div>
