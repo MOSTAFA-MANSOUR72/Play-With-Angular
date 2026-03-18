@@ -1,0 +1,30 @@
+<app-card>
+    <div class="position-relative">
+        <img [src]="product.image" [alt]="product.name" class="card-img-top product-img" />
+        <span class="badge position-absolute top-0 start-0 m-2" [class.bg-success]="product.quantity > 0"
+            [class.bg-danger]="product.quantity === 0">
+            {{ product.quantity > 0 ? 'In Stock' : 'Out of Stock' }}
+        </span>
+
+        <span class="badge bg-secondary position-absolute top-0 end-0 m-2">
+            {{ product.category }}
+        </span>
+    </div>
+
+    <div class="card-body d-flex flex-column">
+        <h5 class="card-title fw-bold">{{ product.name }}</h5>
+        <p class="card-text text-muted small">
+            {{ product.description | shorten }}
+        </p>
+
+        <div class="mt-auto">
+            <p class="fw-bold fs-5 mb-2" [style.color]="product.price <= 100 ? 'green' : '#c0392b'">
+                ${{ product.price }}
+            </p>
+
+            <button class="btn btn-primary w-100" [disabled]="product.quantity === 0">
+                {{ product.quantity > 0 ? 'Add to Cart' : 'Out of Stock' }}
+            </button>
+        </div>
+    </div>
+</app-card>
