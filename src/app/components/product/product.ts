@@ -1,17 +1,34 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Product as products } from '../../interfaces/product.interface';
+import { ProductService } from '../../services/product.service';
+import { ProductCard } from '../productcard/productcard';
 
 @Component({
   selector: 'app-product',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [
+    ProductCard,
+  ],
   templateUrl: './product.html',
   styleUrl: './product.css',
 })
-export class Product {
-  products: any[] = [
-    { id: 1, name: 'Smart Watch', price: 120, image: 'watch1.jpg', inStock: true },
-    { id: 2, name: 'Classic Watch', price: 90, image: 'watch2.jpg', inStock: false },
-    { id: 3, name: 'Sport Watch', price: 150, image: 'watch3.jpg', inStock: true },
-    { id: 4, name: 'Luxury Watch', price: 300, image: 'watch2f.jpg', inStock: true },
-  ];
+export class Product implements OnInit, AfterViewInit, OnDestroy {
+  products: products[] = [];
+
+
+  constructor(private productService: ProductService) { }
+
+  ngOnInit(): void {
+    this.products = this.productService.getProducts();
+    console.log('Product component initialized — products loaded:', this.products.length);
+  }
+
+  ngAfterViewInit(): void {
+    console.log('Product ngAfterViewInit — all product cards are now in the DOM');
+  }
+
+  ngOnDestroy(): void {
+    console.log('Product component destroyed');
+  }
 }
