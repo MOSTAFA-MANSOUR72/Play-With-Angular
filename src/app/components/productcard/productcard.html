@@ -1,14 +1,16 @@
 <app-card>
     <div class="position-relative">
-        <img [src]="product.image" [alt]="product.name" class="card-img-top product-img" />
-        <span class="badge position-absolute top-0 start-0 m-2" [class.bg-success]="product.quantity > 0"
-            [class.bg-danger]="product.quantity === 0">
-            {{ product.quantity > 0 ? 'In Stock' : 'Out of Stock' }}
+        <img [src]="getImageUrl()" [alt]="product.name" class="card-img-top product-img" />
+        <span class="badge position-absolute top-0 start-0 m-2" [class.bg-success]="(product.quantity ?? 1) > 0"
+            [class.bg-danger]="(product.quantity ?? 1) === 0">
+            {{ (product.quantity ?? 1) > 0 ? 'In Stock' : 'Out of Stock' }}
         </span>
 
+        @if (product.category) {
         <span class="badge bg-secondary position-absolute top-0 end-0 m-2">
             {{ product.category }}
         </span>
+        }
     </div>
 
     <div class="card-body d-flex flex-column">
@@ -22,9 +24,18 @@
                 ${{ product.price }}
             </p>
 
-            <button class="btn btn-primary w-100" [disabled]="product.quantity === 0">
-                {{ product.quantity > 0 ? 'Add to Cart' : 'Out of Stock' }}
+            <button class="btn btn-primary w-100 mb-2" [disabled]="(product.quantity ?? 1) === 0">
+                {{ (product.quantity ?? 1) > 0 ? 'Add to Cart' : 'Out of Stock' }}
             </button>
+
+            <div class="d-flex gap-2">
+                <button class="btn btn-outline-warning btn-sm flex-fill" (click)="onEdit()">
+                    ✏️ Edit
+                </button>
+                <button class="btn btn-outline-danger btn-sm flex-fill" (click)="onDelete()">
+                    🗑️ Delete
+                </button>
+            </div>
         </div>
     </div>
 </app-card>
