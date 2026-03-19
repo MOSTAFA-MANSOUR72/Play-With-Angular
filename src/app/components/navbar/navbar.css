@@ -1,3 +1,6 @@
+.navbar {
+  padding: 1rem 2rem;
+}
 .navbar-brand {
   font-size: 1.6rem;
   letter-spacing: 1px;
@@ -10,4 +13,9 @@
 
 .nav-link:hover {
   color: #ffc107 !important;
+}
+
+.logo {
+  width: 110px;
+  height: 40px;
 }

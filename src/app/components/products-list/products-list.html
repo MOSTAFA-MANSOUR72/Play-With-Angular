@@ -1,0 +1,29 @@
+<div class="my-5">
+  <div class="text-center mb-4">
+    <h2>Our Products</h2>
+    <div class="btn-group mt-3" role="group" aria-label="product categories">
+      <button class="btn" [ngClass]="{ 'btn-primary': filter==='all', 'btn-outline-primary': filter!=='all' }" (click)="setFilter('all')">All</button>
+      <button class="btn" [ngClass]="{ 'btn-primary': filter==='electrics', 'btn-outline-primary': filter!=='electrics' }" (click)="setFilter('electrics')">Electrics</button>
+      <button class="btn" [ngClass]="{ 'btn-primary': filter==='accessories', 'btn-outline-primary': filter!=='accessories' }" (click)="setFilter('accessories')">Accessories</button>
+      <button class="btn" [ngClass]="{ 'btn-primary': filter==='shoes', 'btn-outline-primary': filter!=='shoes' }" (click)="setFilter('shoes')">Shoes</button>
+    </div>
+  </div>
+
+  <div class="row">
+    @for (product of filteredProducts; track product.id) {
+      <div class="col-md-4">
+        <div class="card">
+          <img [src]="product.image" [alt]="product.name" class="card-img-top" />
+          <span [ngClass]="{ 'badge bg-danger': !product.inStock, 'badge bg-success': product.inStock, 'product-badge': true }">
+            {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
+          </span>
+          <div class="card-body">
+            <h5 class="card-title image">{{ product.name }}</h5>
+            <p [style.color]="product.price <= 100 ? 'green' : 'red'">${{ product.price }}</p>
+            <button class="btn btn-primary" [disabled]="!product.inStock">{{ product.inStock ? 'Add to Cart' : 'Out of Stock' }}</button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

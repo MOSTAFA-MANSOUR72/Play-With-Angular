@@ -1,0 +1,27 @@
+.btn-group .btn {
+  min-width: 110px;
+}
+
+.card {
+  width: 18rem;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.product-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 0.75rem;
+  padding: 0.25em 0.5em;
+  z-index: 2;
+}
+
+.text-center h2 {
+  margin-bottom: 0.5rem;
+}

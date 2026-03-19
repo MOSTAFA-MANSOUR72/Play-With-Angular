@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
+import { Product } from '../product//product'
 @Component({
   selector: 'app-slider',
-  imports: [],
+  imports: [Product ],
   templateUrl: './slider.html',
   styleUrl: './slider.css',
 })

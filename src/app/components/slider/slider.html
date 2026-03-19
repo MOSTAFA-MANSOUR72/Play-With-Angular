@@ -1,19 +1,21 @@
-<div id="carouselExampleIndicators" class="carousel slide mt-2 mb-5 ">
+<div id="carouselExampleIndicators" class="carousel slide  my-lg-5">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <div class="carousel-inner rounded-2">
-    <div class="carousel-item active">
-      <img src="image.png" class="d-block w-100 h-70" alt="...">
-    </div>
-    <div class="carousel-item">
+  <div class="carousel-inner rounded-4">
+    <div class="carousel-item position-relative active">
       <img src="image copy.png" class="d-block w-100 h-70" alt="...">
+      <div class="store-name-overlay">
+        <img src="store.png" class="logo" />
+      </div>
     </div>
+
     <div class="carousel-item">
       <img src="image.png" class="d-block w-100 h-70" alt="...">
     </div>
+
 
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -24,4 +26,61 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+</div>
+<app-product></app-product>
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <div class="text-warning mb-2">
+            <i class="bi bi-star-fill"></i> ★★★★★
+          </div>
+          <p class="card-text">"The shipping was incredibly fast! I ordered a pair of sneakers on Tuesday and they arrived by Thursday. Quality is top-notch."</p>
+          <div class="d-flex align-items-center pt-3">
+            <div class="ms-3">
+              <h6 class="mb-0">Sarah J.</h6>
+              <small class="text-muted">Verified Buyer</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-primary">
+        <div class="card-body">
+          <div class="text-warning mb-2">
+            <i class="bi bi-star-fill"></i> ★★★★☆
+          </div>
+          <p class="card-text">"Great selection of tech gadgets. The checkout process was smooth, though I wish there were more payment options like crypto."</p>
+          <div class="d-flex align-items-center pt-3">
+            <div class="ms-3">
+              <h6 class="mb-0">Mark R.</h6>
+              <small class="text-muted">Gadget Enthusiast</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <div class="text-warning mb-2">
+            <i class="bi bi-star-fill"></i> ★★★★★
+          </div>
+          <p class="card-text">"Customer support helped me exchange my size within minutes. Truly a seamless experience. Will definitely shop here again!"</p>
+          <div class="d-flex align-items-center pt-3">
+            <div class="ms-3">
+              <h6 class="mb-0">Elena W.</h6>
+              <small class="text-muted">Loyal Customer</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
